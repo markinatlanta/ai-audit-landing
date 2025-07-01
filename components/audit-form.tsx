@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 interface FormData {
   businessName: string
   contactName: string
+  email: string;
   website: string
   industry: string
   employeeCount: string
@@ -67,6 +68,7 @@ export function AuditForm() {
   const [formData, setFormData] = useState<FormData>({
     businessName: '',
     contactName: '',
+    email: '',
     website: 'advisoryjks.com',
     industry: '',
     employeeCount: '',
@@ -219,6 +221,20 @@ export function AuditForm() {
                 {errors.contactName && <p className="text-red-500 text-sm mt-1">{errors.contactName}</p>}
               </div>
             </div>
+<div>
+  <Label htmlFor="email" className="text-base font-semibold text-gray-700">
+    Email Address *
+  </Label>
+  <Input
+    id="email"
+    type="email"
+    value={formData.email}
+    onChange={(e) => handleInputChange('email', e.target.value)}
+    className="mt-2 h-12"
+    placeholder="you@example.com"
+    required
+  />
+</div>
 
             <div className="grid md:grid-cols-1 gap-6">
               <div>
