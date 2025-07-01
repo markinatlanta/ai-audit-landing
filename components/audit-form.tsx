@@ -108,7 +108,7 @@ export function AuditForm() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/audit-request', {
+      const response = await fetch('https://formspree.io/f/mgvydbza', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
