@@ -154,10 +154,10 @@ export function AuditForm() {
             <div className="bg-blue-50 p-6 rounded-xl">
               <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
               <ul className="text-left text-blue-800 space-y-2">
-                <li>• Our AI will pre-analyze your business within 24 hours</li>
+                <li>• Our AI will pre-analyze your business</li>
                 <li>• We'll contact you through advisoryjks.com with personalized insights and schedule your free consultation</li>
                 <li>• During the call, we'll present specific automation opportunities</li>
-                <li>• You'll receive a detailed action plan with ROI projections</li>
+                <li>• You'll receive a detailed action plan</li>
               </ul>
             </div>
           </motion.div>
