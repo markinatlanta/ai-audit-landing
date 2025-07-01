@@ -1,0 +1,34 @@
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/ai_audit_landing/app/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model AuditRequest {
+  id                    String   @id @default(cuid())
+  businessName          String
+  contactName           String
+  website               String   @default("advisoryjks.com")
+  industry              String
+  employeeCount         String
+  revenueRange          String
+  timeConsumingTasks    String
+  currentTools          String
+  operationalBottlenecks String
+  painPoints            String
+  additionalInfo        String?
+  status                String   @default("pending")
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@map("audit_requests")
+}
