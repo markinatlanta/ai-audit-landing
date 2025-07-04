@@ -118,6 +118,10 @@ export function AuditForm() {
 
       if (response.ok) {
         setIsSubmitted(true)
+        if (typeof window !== 'undefined' && typeof window.gtag_report_conversion === 'function') {
+  window.gtag_report_conversion();
+}
+
       } else {
         throw new Error('Failed to submit form')
       }
