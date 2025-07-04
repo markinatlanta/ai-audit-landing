@@ -11,6 +11,13 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => void;
+  }
+}
+
+
 interface FormData {
   businessName: string
   contactName: string
