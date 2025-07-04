@@ -2,7 +2,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,19 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <Head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17307204764" />
-  <script
-    dangerouslySetInnerHTML={{
-      __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17307204764');
-      `,
-    }}
-  />
-</Head>
+   
 
     <html lang="en">
       <body className={inter.className}>{children}</body>
