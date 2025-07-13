@@ -115,31 +115,36 @@ const handleSubmit = async (e: React.FormEvent) => {
   if (!validateForm()) return;
   setIsSubmitting(true);
 
+  // 1) Fire the Google Ads conversion, but don’t let any errors bubble up
   try {
-    // ——— FIRE THE CONVERSION EVENT ———
-    if (typeof window !== 'undefined') {
-      // Option A: use your helper
-      if (typeof window.gtag_report_conversion === 'function') {
-        window.gtag_report_conversion();
-      }
-      // Option B: or fire it directly
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-17307204764/5AqcCPW16ukaEJz527xA',
-          value: 1.0,
-          currency: 'USD',
-        });
-      }
+    window.gtag_report_conversion?.();
+    window.gtag?.('event', 'conversion', {
+      send_to: 'AW-17307204764/5AqcCPW16ukaEJz527xA',
+      value: 1.0,
+      currency: 'USD',
+    });
+  } catch (gtagError) {
+    console.warn('gtag error (ignored):', gtagError);
+  }
+
+  // 2) Submit to Formspree with the correct URL + headers
+  try {
+    const response = await fetch('https://formspree.io/f/mgvydbza/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Formspree returned ${response.status}`);
     }
 
-    // ——— NOW SUBMIT THE FORM ———
-    const response = await fetch('https://formspree.io/f/mgvydbza', { /*…*/ });
-    if (!response.ok) throw new Error('Failed to submit form');
-
-    // ——— SHOW THE THANK-YOU VIEW ———
     setIsSubmitted(true);
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error('Form submission error:', err);
     alert('There was an error submitting your form. Please try again.');
   } finally {
     setIsSubmitting(false);
