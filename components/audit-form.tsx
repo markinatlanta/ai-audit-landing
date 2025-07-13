@@ -13,9 +13,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 declare global {
   interface Window {
+    gtag?: (...args: any[]) => void;
     gtag_report_conversion?: (url?: string) => void;
   }
 }
+
 
 
 interface FormData {
