@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: 'AI audit, business automation, AI consulting, small business, productivity, JKS Advisory',
   openGraph: {
     title: 'Free AI Audit - Save 10+ Hours Per Week | JKS Advisory',
-    description: 'Discover how AI can transform your business operations. Free 30-minute consultation.',
+    description: 'Discover how AI can transform your business operations. Free consultation.',
     type: 'website',
   },
 }
