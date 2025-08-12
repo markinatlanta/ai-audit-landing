@@ -32,7 +32,7 @@ export function Hero() {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Get a free 30-minute AI audit and discover exactly how artificial intelligence 
+            Get a free AI audit and discover exactly how artificial intelligence 
             can streamline your business operations and boost productivity.
           </p>
           
@@ -44,7 +44,7 @@ export function Hero() {
           >
             <div className="flex items-center gap-2 text-lg">
               <Clock className="w-5 h-5 text-green-300" />
-              <span>30-minute consultation</span>
+              <span>Short consultation</span>
             </div>
             <div className="hidden sm:block w-1 h-1 bg-white/50 rounded-full"></div>
             <div className="flex items-center gap-2 text-lg">
